@@ -1,0 +1,14 @@
+# Core
+Django>=1.10,<1.11
+wagtail>=1.9,<1.10
+psycopg2>=2.7.1
+dj-database-url>=0.4.1
+
+
+# Storage S3
+whitenoise>=3.2
+
+# rest api
+djangorestframework>=3.6.2
+Markdown>=2.6.8
+django-filter>=1.0.2
