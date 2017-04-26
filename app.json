@@ -1,7 +1,13 @@
 {
-  "name": "BrightnessMonitorWeb",
-  "description": "Server for BrightnessMonitor",
-  "repository": "https://github.com/BrightnessMonitor/BrightnessMonitorWeb",
-  "logo": "https://www.djangoproject.com/s/img/logos/django-logo-negative.png",
-  "keywords": ["python", "django"]
+    "name": "BrightnessMonitorWeb",
+    "description": "Server for BrightnessMonitor",
+    "repository": "https://github.com/BrightnessMonitor/BrightnessMonitorWeb",
+    "logo": "https://www.djangoproject.com/s/img/logos/django-logo-negative.png",
+    "keywords": [
+        "python",
+        "django"
+    ],
+    "scripts": {
+        "postdeploy": "heroku-env-default.sh"
+    }
 }
