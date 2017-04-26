@@ -8,6 +8,6 @@
         "django"
     ],
     "scripts": {
-        "postdeploy": "heroku-env-default.sh"
+        "postdeploy": "https://raw.githubusercontent.com/BrightnessMonitor/BrightnessMonitorWeb/master/heroku-env-default.sh"
     }
 }
