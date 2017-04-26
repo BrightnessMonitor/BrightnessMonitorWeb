@@ -8,12 +8,15 @@
     "django"
   ],
   "env": {
-    "SECRET_KEY": "222222222",
+    "SECRET_KEY": "change to something more secure :)",
     "DJANGO_SETTINGS_MODULE": "BrightnessMonitorWeb.settings.production",
     "WEB_CONCURRENCY": "2",
     "DISABLE_COLLECTSTATIC": "1"
   },
   "scripts": {
-    "postdeploy": "https://raw.githubusercontent.com/BrightnessMonitor/BrightnessMonitorWeb/master/heroku-env-default.sh"
-  }
+    "postdeploy": "django-admin.py migrate"
+  },
+  "addons": [
+    "heroku-postgresql:hobby-dev"
+  ]
 }
