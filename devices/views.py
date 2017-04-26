@@ -6,7 +6,7 @@ from devices.serializers import DeviceSerializer
 
 class DeviceViewSet(viewsets.ModelViewSet):
     """
-    API endpoint that allows device to be viewed or edited.
+    API endpoint that allows device to add a brightness value
     """
     queryset = Device.objects.none()
     serializer_class = DeviceSerializer

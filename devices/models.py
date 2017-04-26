@@ -7,22 +7,24 @@ from django.dispatch import receiver
 from osm_field.fields import LatitudeField, LongitudeField, OSMField
 from rest_framework.authtoken.models import Token
 
-"""
-When create a new user -> create new api token
-"""
-
 
 @receiver(post_save, sender=settings.AUTH_USER_MODEL)
 def create_auth_token(sender, instance=None, created=False, **kwargs):
+    """
+    When create a new user -> create new api token
+    """
     if created:
         Token.objects.create(user=instance)
 
 
+
+
 class Device(models.Model):
+    """
+    Main model for each device
+    """
     def __str__(self):
         return self.name
-
-
 
     user = models.ForeignKey(User)
     uuid = models.UUIDField(default=uuid.uuid4, editable=True)
@@ -34,6 +36,9 @@ class Device(models.Model):
 
 
 class Brightness(models.Model):
+    """
+    Save the brightness value of a moment datetime for one device
+    """
     def __str__(self):
         return "%s @ %s" % (self.device, self.datetime.strftime('%m/%d/%Y - %H:%M'))
 

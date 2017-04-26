@@ -6,14 +6,13 @@ from rest_framework.fields import UUIDField, IntegerField, DateTimeField, CharFi
 from devices.models import Device, Brightness
 
 
-class DeviceSerializer(serializers.HyperlinkedModelSerializer):
-    class Meta:
-        model = Device
-        fields = ('uuid',)
-        extra_kwargs = {'uuid': {'write_only': True}}
-
-
 class DeviceSerializer(serializers.Serializer):
+    """
+    Serializer to upload a new brightness value
+    """
+    def update(self, instance, validated_data):
+        pass
+
     uuid = UUIDField()
     datetime = DateTimeField()
     value = IntegerField(max_value=None, min_value=None)
