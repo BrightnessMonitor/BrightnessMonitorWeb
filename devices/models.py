@@ -19,6 +19,11 @@ def create_auth_token(sender, instance=None, created=False, **kwargs):
 
 
 class Device(models.Model):
+    def __str__(self):
+        return self.name
+
+
+
     user = models.ForeignKey(User)
     uuid = models.UUIDField(default=uuid.uuid4, editable=True)
     name = models.CharField(max_length=200)
@@ -29,6 +34,9 @@ class Device(models.Model):
 
 
 class Brightness(models.Model):
+    def __str__(self):
+        return "%s @ %s" % (self.device, self.datetime.strftime('%m/%d/%Y - %H:%M'))
+
     device = models.ForeignKey(Device, on_delete=models.CASCADE)
     value = models.IntegerField(default=0)
     datetime = models.DateTimeField(auto_now=False)
