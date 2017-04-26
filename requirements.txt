@@ -14,3 +14,9 @@ whitenoise>=3.2
 djangorestframework>=3.6.2
 Markdown>=2.6.8
 django-filter>=1.0.2
+django-rest-swagger>=2.1.2
+
+# devices
+# http://django-osm-field.readthedocs.io/en/latest/
+django-osm-field>=0.3.1
+uuid>=1.30
