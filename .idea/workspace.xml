@@ -2,7 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="96b78512-40a0-4815-af44-ae4f5db56ab5" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app.json" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -528,7 +527,14 @@
       <option name="project" value="LOCAL" />
       <updated>1493232392533</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="add heroku deployment button function">
+      <created>1493232411656</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1493232411656</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -587,7 +593,8 @@
     <MESSAGE value="update models view" />
     <MESSAGE value="update doc" />
     <MESSAGE value="update readme" />
-    <option name="LAST_COMMIT_MESSAGE" value="update readme" />
+    <MESSAGE value="add heroku deployment button function" />
+    <option name="LAST_COMMIT_MESSAGE" value="add heroku deployment button function" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
