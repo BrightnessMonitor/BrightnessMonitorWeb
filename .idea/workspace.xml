@@ -4,7 +4,6 @@
     <list default="true" id="96b78512-40a0-4815-af44-ae4f5db56ab5" name="Default" comment="">
       <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app.json" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/README.md" afterPath="$PROJECT_DIR$/README.md" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -522,7 +521,14 @@
       <option name="project" value="LOCAL" />
       <updated>1493231187625</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="update readme">
+      <created>1493232392533</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1493232392533</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -580,7 +586,8 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="update models view" />
     <MESSAGE value="update doc" />
-    <option name="LAST_COMMIT_MESSAGE" value="update doc" />
+    <MESSAGE value="update readme" />
+    <option name="LAST_COMMIT_MESSAGE" value="update readme" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
