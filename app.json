@@ -14,7 +14,7 @@
     "DISABLE_COLLECTSTATIC": "1"
   },
   "scripts": {
-    "postdeploy": "django-admin.py migrate"
+    "postdeploy": "django-admin.py migrate && echo \"from django.contrib.auth.models import User; User.objects.create_superuser('admin', 'admin@example.com', 'demopass')\" | python manage.py shell"
   },
   "addons": [
     "heroku-postgresql:hobby-dev"
