@@ -8,7 +8,7 @@ DEBUG = False
 
 SECRET_KEY = os.environ.get('SECRET_KEY')
 
-ALLOWED_HOSTS = ['infinite-crag-79176.herokuapp.com']
+ALLOWED_HOSTS = ['*']
 
 # force https
 SECURE_SSL_REDIRECT = True
