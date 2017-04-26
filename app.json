@@ -1,13 +1,19 @@
 {
-    "name": "BrightnessMonitorWeb",
-    "description": "Server for BrightnessMonitor",
-    "repository": "https://github.com/BrightnessMonitor/BrightnessMonitorWeb",
-    "logo": "https://www.djangoproject.com/s/img/logos/django-logo-negative.png",
-    "keywords": [
-        "python",
-        "django"
-    ],
-    "scripts": {
-        "postdeploy": "https://raw.githubusercontent.com/BrightnessMonitor/BrightnessMonitorWeb/master/heroku-env-default.sh"
-    }
+  "name": "BrightnessMonitorWeb",
+  "description": "Server for BrightnessMonitor",
+  "repository": "https://github.com/BrightnessMonitor/BrightnessMonitorWeb",
+  "logo": "https://www.djangoproject.com/s/img/logos/django-logo-negative.png",
+  "keywords": [
+    "python",
+    "django"
+  ],
+  "env": {
+    "SECRET_KEY": "222222222",
+    "DJANGO_SETTINGS_MODULE": "BrightnessMonitorWeb.settings.production",
+    "WEB_CONCURRENCY": "2",
+    "DISABLE_COLLECTSTATIC": "1"
+  },
+  "scripts": {
+    "postdeploy": "https://raw.githubusercontent.com/BrightnessMonitor/BrightnessMonitorWeb/master/heroku-env-default.sh"
+  }
 }
