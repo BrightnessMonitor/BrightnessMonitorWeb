@@ -17,12 +17,11 @@ def create_auth_token(sender, instance=None, created=False, **kwargs):
         Token.objects.create(user=instance)
 
 
-
-
 class Device(models.Model):
     """
     Main model for each device
     """
+
     def __str__(self):
         return self.name
 
@@ -33,12 +32,14 @@ class Device(models.Model):
     location = OSMField()
     location_lat = LatitudeField()
     location_lon = LongitudeField()
+    brighnessLevel = models.FloatField(default=0) # max = 1 - min = 0
 
 
 class Brightness(models.Model):
     """
     Save the brightness value of a moment datetime for one device
     """
+
     def __str__(self):
         return "%s @ %s" % (self.device, self.datetime.strftime('%m/%d/%Y - %H:%M'))
 

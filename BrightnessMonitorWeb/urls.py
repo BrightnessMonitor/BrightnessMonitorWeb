@@ -20,7 +20,7 @@ from devices import urls as devices_url
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
-    url(r'^api/', include(devices_url)),
+    url(r'^', include(devices_url)),
 ]
 
 
