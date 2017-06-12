@@ -1,5 +1,6 @@
 from django.contrib.auth.models import User, Group
 from django.core.exceptions import ObjectDoesNotExist
+from django.utils.datetime_safe import datetime
 from rest_framework import serializers
 from rest_framework.fields import UUIDField, IntegerField, DateTimeField, CharField
 
@@ -10,6 +11,7 @@ class DeviceSerializer(serializers.Serializer):
     """
     Serializer to upload a new brightness value
     """
+
     def update(self, instance, validated_data):
         pass
 
@@ -40,6 +42,24 @@ class DeviceSerializer(serializers.Serializer):
                 datetime=validated_data['datetime'],
                 value=validated_data['value']
             )
+            brightness.save()
+
+            brightness_list = Brightness.objects.filter(device=brightness.device,
+                                                        datetime__year=brightness.datetime.year,
+                                                        datetime__month=brightness.datetime.month,
+                                                        datetime__day=brightness.datetime.day).exclude(
+                id__in=[brightness.id, ])
+
+            for brightness_item in brightness_list:
+                # counter
+                brightness.counter = brightness.counter + brightness_item.counter
+                # value
+                brightness.value = brightness.value + (brightness_item.counter * brightness_item.value)
+                brightness.value = brightness.value / brightness.counter
+
+                # delete old entry
+                brightness_item.delete()
+
             brightness.save()
 
             validated_data['status'] = "Success: data saved"

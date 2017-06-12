@@ -4,6 +4,7 @@ from django.db import models
 from django.conf import settings
 from django.db.models.signals import post_save
 from django.dispatch import receiver
+from django.utils.datetime_safe import datetime
 from osm_field.fields import LatitudeField, LongitudeField, OSMField
 from rest_framework.authtoken.models import Token
 
@@ -32,7 +33,23 @@ class Device(models.Model):
     location = OSMField()
     location_lat = LatitudeField()
     location_lon = LongitudeField()
-    brighnessLevel = models.FloatField(default=0) # max = 1 - min = 0
+
+    def get_brighness_level(self):
+        last_ten_records = Brightness.objects.all().order_by('-id')[:10]
+
+        brighness_level = 0
+
+        for record in last_ten_records:
+            brighness_level = record.value + brighness_level
+
+        brighness_level = brighness_level / len(last_ten_records)
+        max_brightness = 10000  # max brightness level
+        brighness_level = brighness_level / max_brightness
+
+        # oppsite brighness_level percent
+        brighness_level = 1 - brighness_level
+
+        return brighness_level
 
 
 class Brightness(models.Model):
@@ -46,3 +63,4 @@ class Brightness(models.Model):
     device = models.ForeignKey(Device, on_delete=models.CASCADE)
     value = models.IntegerField(default=0)
     datetime = models.DateTimeField(auto_now=False)
+    counter = models.IntegerField(default=1)  # count how many Brightness values combined in this entry

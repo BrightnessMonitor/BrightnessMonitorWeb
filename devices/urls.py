@@ -18,6 +18,7 @@ router.register(r'device', views.DeviceViewSet)
 # Additionally, we include login URLs for the browsable API.
 urlpatterns = [
     url(r'^$', views.index, name='index'),
+    url(r'^stats/', views.stats, name='stats'),
     url(r'^api/', include(router.urls)),
     url(r'^doc/', schema_view),
     url(r'^api-auth/', include('rest_framework.urls', namespace='rest_framework')),

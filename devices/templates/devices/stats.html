@@ -1,0 +1,47 @@
+<html>
+<head>
+    <title>Stats</title>
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    {% for devices in device_list %}
+        <script type="text/javascript">
+            google.charts.load('current', {'packages': ['bar']});
+            google.charts.setOnLoadCallback(drawStuff);
+
+            function drawStuff() {
+                var data = new google.visualization.arrayToDataTable([
+                    ['Day', 'Value'],
+                    {% for Brightness_item in devices.Brightness %}
+                        ["{{ Brightness_item.datetime|date:'Y-m-d' }}", {{ Brightness_item.value }}] ,
+                    {% endfor %}
+                ]);
+
+                var options = {
+                    width: 800,
+                    legend: {position: 'none'},
+                    chart: {
+                        title: 'Brightness Level',
+                        subtitle: 'per day'
+                    },
+                    axes: {
+                        x: {
+                            0: {side: 'top', label: 'day'} // Top x-axis.
+                        }
+                    },
+                    bar: {groupWidth: "90%"}
+                };
+
+                var chart = new google.charts.Bar(document.getElementById('top_x_div{{ devices.id }}'));
+                // Convert the Classic options to Material options.
+                chart.draw(data, google.charts.Bar.convertOptions(options));
+            };
+        </script>
+    {% endfor %}
+</head>
+<body>
+{% for devices in device_list %}
+    <h1>{{ devices.name }}</h1>
+    <div id="top_x_div{{ devices.id }}" style="width: 800px; height: 600px;"></div>
+    <br/>
+{% endfor %}
+</body>
+</html>
