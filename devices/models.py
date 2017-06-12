@@ -42,6 +42,9 @@ class Device(models.Model):
         for record in last_ten_records:
             brighness_level = record.value + brighness_level
 
+        if len(last_ten_records) == 0:
+            return 1
+
         brighness_level = brighness_level / len(last_ten_records)
         max_brightness = 10000  # max brightness level
         brighness_level = brighness_level / max_brightness
